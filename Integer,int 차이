@@ -1,0 +1,30 @@
+Integerdhk Int의 차이에 대해서 알아보자.
+
+1. Primitive 자료형 - Wrapper 클래스 관계
+
+int : primitive 자료형(long,float,double .. ) / 산술연산이 가능하다 / null로 초기화 할 수 없다.
+Integer : Wrapper클래스(객체) / Unboxing을 하지 않으면 산술 연산이 불가능 하지만, null값을 처리할 수 있다.
+          null값 처리가 용이하기 대문에 SQL과 연동할 경우 처리가 용이하다. / DB에서 자료형이 정수형이지만 null 값이 필요한 경우 VO(Value Object)에서 Integer를 사용할 수 있음.
+          
+          
+2. int와 Integer간의 변환
+- Boxing과 Unboxing이라고 한다.
+
+Boxing : Primitive자료형 >> Wrapper 클래스
+Unboxing : Wrapper 클래스 >> Primitive 자료형
+
+Integer.valueOf(String) : Integer클래스를 리턴하기 때문에 산술 연산을 할 수 없다.
+Integer.parseInt(String) : int형을 리턴하기 때문에 산술 연산을 할 수 있다.
+
+3. Auto boxing / unboxing
+- 자바에서는 모든 경우는 아니지만 대부분의 경우에는 자동으로 boxing / unboxing을 해준다.
+
+4. int와 Integer의 사이즈를 비교하는 체험
+- 조건 : Integer 및 int배열을 1000000개 생성.
+- 결과 : Integer : 19986824 byte / int : 3998536 byte
+약 5배 차이가 난다.
+
+요약 : Object가 8 byte / Integer가 16 byte / Integer를 참조하는데 4 byte
+        Integer의 사이즈는 20 byte / int의 사이즈는 4 byte >> 약 5배 차이.
+
+          
